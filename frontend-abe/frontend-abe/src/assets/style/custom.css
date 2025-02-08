@@ -1,0 +1,16 @@
+.wrapper-box {
+  display: flex;
+  align-items: center; /* To align items vertically in the center */
+}
+.left-column,
+.right-column {
+  flex: 1; /* Adjusts columns to take equal space */
+}
+.right-column {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+.left-column {
+  width: 60%;
+}
