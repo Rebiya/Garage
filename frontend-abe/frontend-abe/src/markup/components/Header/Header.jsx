@@ -67,7 +67,7 @@ const Header = () => {
                           <Link to="/contact">Contact us</Link>
                         </li>
                         <li className="dropdown">
-                          <Link to="/dashboard">Admin</Link>
+                          <Link to="/addEmployee">Admin</Link>
                         </li>
                       </ul>
                     </div>
@@ -150,8 +150,6 @@ const Header = () => {
         </div>
       </header>
       {/* End Main Header */}
-
-    
     </>
   );
 };
