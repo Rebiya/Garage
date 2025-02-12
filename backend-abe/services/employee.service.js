@@ -7,20 +7,15 @@ const bcrypt = require("bcrypt");
 const findEmployeeByEmail = async (email) => {
   try {
     //query to check if the employee exists or not
-    const query = `SELECT * FROM employees WHERE employee_email = ?`;
+    console.log(`🔍 Searching for email: ${email}`);
+    const query = `SELECT * FROM employee WHERE employee_email = ?`;
     //check if the employee exists or not
-    const rows = await db.query(query, [email]);
-    console.log(rows);
-    if (rows.length === 0) {
-      return false;
-    } else {
-      return true;
-    }
+    const rows = await db(query, [email]);
+    console.log("📄 Query Result:", rows);
+    return rows.length > 0;
   } catch (error) {
-    console.error("An error occurred while checking the employee's email");
-    throw new Error(
-      "We encountered an error while verifying your email. Please try again later."
-    );
+    console.error("❌ Error in findEmployeeByEmail:", error.message);
+    throw new Error("Database operation failed while checking email.");
   }
 };
 
@@ -35,12 +30,13 @@ const createEmployee = async (employee) => {
     // Insert the email in to the employee table
     const query =
       "INSERT INTO employee (employee_email, active_employee) VALUES (?, ?)";
-    const rows = await db.query(query, [
+    const rows = await db(query, [
       employee.employee_email,
       employee.active_employee,
     ]);
-    console.log(rows);
+    console.log("rows after inserting to employee table", rows);
     if (rows.affectedRows !== 1) {
+      console.error("❌ Failed to insert into employees table.");
       return false;
     }
     // Get the employee id from the insert
@@ -48,7 +44,7 @@ const createEmployee = async (employee) => {
     // Insert the remaining data in to the employee_info, employee_pass, and employee_role tables
     const query2 =
       "INSERT INTO employee_info (employee_id, employee_first_name, employee_last_name, employee_phone) VALUES (?, ?, ?, ?)";
-    const rows2 = await db.query(query2, [
+    const rows2 = await db(query2, [
       employee_id,
       employee.employee_first_name,
       employee.employee_last_name,
@@ -56,19 +52,17 @@ const createEmployee = async (employee) => {
     ]);
     const query3 =
       "INSERT INTO employee_pass (employee_id, employee_password_hashed) VALUES (?, ?)";
-    const rows3 = await db.query(query3, [employee_id, hashedPassword]);
+    const rows3 = await db(query3, [employee_id, hashedPassword]);
     const query4 =
       "INSERT INTO employee_role (employee_id, company_role_id) VALUES (?, ?)";
-    const rows4 = await db.query(query4, [
-      employee_id,
-      employee.company_role_id,
-    ]);
+    const rows4 = await db(query4, [employee_id, employee.company_role_id]);
     // construct to the employee object to return
     createdEmployee = {
       employee_id: employee_id,
     };
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error("❌ Error in createEmployee:", error.message);
+    throw new Error("Database operation failed while creating employee.");
   }
   // Return the employee object
   return createdEmployee;

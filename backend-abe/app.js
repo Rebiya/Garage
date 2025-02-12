@@ -15,7 +15,7 @@ app.use(cors());
 // Add the express.json middleware to the application
 app.use(express.json());
 //use router in the application
-app.use(router);
+app.use("/api", router);
 //set the port
 const port = process.env.PORT;
 //start the server
