@@ -7,14 +7,14 @@ const bcrypt = require("bcrypt");
 const findEmployeeByEmail = async (email) => {
   try {
     //query to check if the employee exists or not
-    console.log(`🔍 Searching for email: ${email}`);
+    // console.log(`🔍 Searching for email: ${email}`);
     const query = `SELECT * FROM employee WHERE employee_email = ?`;
     //check if the employee exists or not
     const rows = await db(query, [email]);
-    console.log("📄 Query Result:", rows);
+    // console.log("📄 Query Result:", rows);
     return rows.length > 0;
   } catch (error) {
-    console.error("❌ Error in findEmployeeByEmail:", error.message);
+    // console.error("❌ Error in findEmployeeByEmail:", error.message);
     throw new Error("Database operation failed while checking email.");
   }
 };
@@ -34,9 +34,9 @@ const createEmployee = async (employee) => {
       employee.employee_email,
       employee.active_employee,
     ]);
-    console.log("rows after inserting to employee table", rows);
+    // console.log("rows after inserting to employee table", rows);
     if (rows.affectedRows !== 1) {
-      console.error("❌ Failed to insert into employees table.");
+      // console.error("❌ Failed to insert into employees table.");
       return false;
     }
     // Get the employee id from the insert
@@ -61,15 +61,26 @@ const createEmployee = async (employee) => {
       employee_id: employee_id,
     };
   } catch (error) {
-    console.error("❌ Error in createEmployee:", error.message);
+    // console.error("❌ Error in createEmployee:", error.message);
     throw new Error("Database operation failed while creating employee.");
   }
   // Return the employee object
   return createdEmployee;
 };
 
+
+// A function to get employee by email
+async function getEmployeeByEmail(employee_email) {
+  const query =
+    "SELECT * FROM employee INNER JOIN employee_info ON employee.employee_id = employee_info.employee_id INNER JOIN employee_pass ON employee.employee_id = employee_pass.employee_id INNER JOIN employee_role ON employee.employee_id = employee_role.employee_id WHERE employee.employee_email = ?";
+  const rows = await db(query, [employee_email]);
+  return rows;
+}
+
+
 //export the functions
 module.exports = {
   findEmployeeByEmail,
   createEmployee,
+  getEmployeeByEmail,
 };

@@ -5,7 +5,7 @@ const createEmployee = async (req, res) => {
     const { employee_email } = req.body;
 
     // Debugging log
-    console.log(`🔍 Checking email: ${employee_email}`);
+    // console.log(`🔍 Checking email: ${employee_email}`);
 
     // Check if employee exists
     const employeeExists = await employeeService.findEmployeeByEmail(
@@ -23,7 +23,7 @@ const createEmployee = async (req, res) => {
 
     res.status(200).json({ status: "true" });
   } catch (error) {
-    console.error("❌ Error in createEmployee:", error.message);
+    // console.error("❌ Error in createEmployee:", error.message);
     res.status(500).json({ message: "Server error, please try again later." });
   }
 };
