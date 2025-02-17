@@ -23,7 +23,7 @@ const createEmployee = async (formData) => {
 
     return response.json();
   } catch (error) {
-    console.error("❌ Fetch error:", error);
+    // console.error("❌ Fetch error:", error);
     throw error;
   }
 };
