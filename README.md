@@ -2,6 +2,7 @@
 # 🚗 GarageHub – Smart Garage Management System
 
 ### 🔗 Live Demo: [GarageHub](https://mygaragehub.onrender.com) 
+### 🔗 Watch Video Demo: [GarageHub]([https://mygaragehub.onrender.com](https://youtu.be/odORMB_daIk?si=qE9dZpb2F7_yIfv6))  
 
 GarageHub is a **feature-rich Garage Management System** designed to streamline vehicle service management, customer interactions, and inventory tracking. Built using **React, Express, and MySQL**, it provides a seamless experience for garage owners and customers, ensuring efficient service tracking and management.
 
