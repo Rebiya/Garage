@@ -1,63 +1,62 @@
-# Garage
 # 🚗 GarageHub – Smart Garage Management System
 
-### 🔗 Live Demo: [GarageHub](https://mygaragehub.onrender.com) 
-### 🔗 Watch Video Demo: [GarageHub]([https://mygaragehub.onrender.com](https://youtu.be/odORMB_daIk?si=qE9dZpb2F7_yIfv6))  
+A powerful and user-friendly garage management platform for vehicle servicing, customer management, and reporting.
 
-GarageHub is a **feature-rich Garage Management System** designed to streamline vehicle service management, customer interactions, and inventory tracking. Built using **React, Express, and MySQL**, it provides a seamless experience for garage owners and customers, ensuring efficient service tracking and management.
+🔗 **Live Demo**: [GarageHub](https://mygaragehub.onrender.com)  
+🎥 **Watch Demo**: [YouTube Video](https://youtu.be/odORMB_daIk?si=qE9dZpb2F7_yIfv6)
 
 ---
 
 ## 📌 Features
 
 ### 🏢 Garage Management
-- Add, update, and manage customer vehicle service records.
-- Track service history for each vehicle with automated logging.
-- Assign mechanics and track job progress.
+- Create, update, and manage service records.
+- View complete vehicle service history.
+- Assign mechanics and track job statuses.
 
 ### 👨‍🔧 Customer & Employee Management
-- Secure **user authentication** with JWT.
-- Role-based access control (**Admin, Mechanics, Customers**).
-- Manage employees, assign roles, and track working hours.
+- JWT-based secure user authentication.
+- Role-based access: Admin, Mechanic, Customer.
+- Manage employee roles and track working hours.
 
 ### 💰 Billing & Payments
-- Generate **service invoices** dynamically.
-- Manage **payment history** and pending dues.
-- Integration with payment gateways (future scope).
+- Dynamic invoice generation for each service.
+- Track payments and outstanding dues.
+- Payment gateway integration (coming soon).
 
-### 🔔 Notifications & Alerts
-- **Real-time alerts** for completed services and due payments.
-- **Email notifications** for service updates.
+### 🔔 Notifications
+- Real-time alerts for job completion and payments.
+- Email updates for customers and staff.
 
-### 📊 Dashboard & Reporting
-- Interactive **analytics dashboard** with service statistics.
-- Track **monthly revenue** and customer visits.
-- Data visualization using **Charts.js**.
+### 📊 Dashboard & Reports
+- Visualized metrics using **Chart.js**.
+- Monthly revenue and visit analytics.
+- Track service trends and workload.
 
 ---
 
 ## 🛠 Tech Stack
 
 ### 🖥️ Frontend
-- **React.js** – Modern UI with reusable components.
-- **React Router DOM** – Navigation handling.
-- **Bootstrap & Framer Motion** – Responsive UI with smooth animations.
-- **React Hot Toast & SweetAlert2** – User-friendly notifications.
+- React.js (Hooks & Components)
+- React Router DOM
+- Bootstrap & Framer Motion
+- SweetAlert2 & React Hot Toast
 
 ### 🏗 Backend
-- **Node.js & Express.js** – Fast and scalable API.
-- **MySQL & Sequelize** – Secure and structured database management.
-- **JWT Authentication** – Secure token-based authentication.
-- **bcryptjs** – Password hashing for security.
+- Node.js + Express.js
+- MySQL + Sequelize ORM
+- JWT Authentication
+- bcryptjs for password encryption
 
-### 🔧 Other Utilities
-- **dotenv** – Secure environment variables.
-- **CORS** – Secure API communication.
-- **Nodemon** – Development automation.
+### 🔧 Utilities
+- dotenv (Environment config)
+- Nodemon (Dev automation)
+- CORS (Cross-origin requests)
 
 ---
 
-## 🚀 Installation & Setup
+## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
 ```bash
